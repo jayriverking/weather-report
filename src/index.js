@@ -3,6 +3,7 @@ const upButton = document.getElementById("up-button");
 const downButton = document.getElementById("button-down");
 let number = document.getElementById("temperature-now");
 let numInt = parseFloat(number.innerText);
+const weatherGarden = document.getElementById('weather-garden');
 
 console.log('curret temp', number.innerText);
 
@@ -31,12 +32,31 @@ const colorTemp = (number) => {
 
 }
 
+const weatherGardenChanges = (number) => {
+
+  if (numInt < 59){
+      weatherGarden.style.backgroundColor = "green";
+  }
+  else if (numInt < 69){
+      weatherGarden.style.backgroundColor = "yellow";
+  }
+  else if (numInt < 79){
+      weatherGarden.style.backgroundColor = "orange";
+  }
+  else {
+
+          weatherGarden.style.backgroundColor = "red";
+  }
+
+}
+
+
 upButton.addEventListener("click", () => {
     console.log(number);
     incrementNum();
     colorTemp(number);
+    weatherGardenChanges(number);
 });
-
 
 
 const decrementNum = () => {
@@ -47,4 +67,6 @@ downButton.addEventListener("click", () => {
     console.log(number);
     decrementNum()
     colorTemp(number)
+    weatherGardenChanges(number);
 });
+
