@@ -11,7 +11,7 @@ const incrementNum = () => {
 }
 // color changing function
 const colorTemp = (number) => {
-    let numInt = parseFloat(number.innerText);
+
     if (numInt < 49){
         number.style.color = "teal";
     }
