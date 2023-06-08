@@ -5,8 +5,14 @@ let number = document.getElementById("temperature-now");
 let numInt = parseFloat(number.innerText);
 const weatherGarden = document.getElementById('weather-garden');
 const weatherEmojis = document.getElementById('weather-emojis');
+const cityDisplay = document.getElementById("city-display")
+const cityId = document.getElementById("city-input")
 
-console.log('curret temp', number.innerText);
+function display() {
+    cityDisplay.innerText = cityId.value;
+  }
+
+// console.log('curret temp', number.innerText);
 
 const incrementNum = () => {
     number.innerText = numInt++;
