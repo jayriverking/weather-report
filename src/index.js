@@ -4,6 +4,7 @@ const downButton = document.getElementById("button-down");
 let number = document.getElementById("temperature-now");
 let numInt = parseFloat(number.innerText);
 const weatherGarden = document.getElementById('weather-garden');
+const weatherEmojis = document.getElementById('weather-emojis');
 
 console.log('curret temp', number.innerText);
 
@@ -36,16 +37,19 @@ const weatherGardenChanges = (number) => {
 
   if (numInt < 59){
       weatherGarden.style.backgroundColor = "green";
+      weatherEmojis.innerHTML = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"
   }
   else if (numInt < 69){
       weatherGarden.style.backgroundColor = "yellow";
+      weatherEmojis.innerHTML = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"
   }
   else if (numInt < 79){
       weatherGarden.style.backgroundColor = "orange";
+      weatherEmojis.innerHTML = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"
   }
   else {
-
           weatherGarden.style.backgroundColor = "red";
+          weatherEmojis.innerHTML = "🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂"
   }
 
 }
