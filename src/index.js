@@ -9,11 +9,15 @@ console.log('curret temp', number.innerText);
 const incrementNum = () => {
     number.innerText = numInt++;
 }
+// decrementNum function
 
 upButton.addEventListener("click", () => {
     console.log(number);
     incrementNum();
-    //console.log(numInt, number);
 });
 
-// // upButton.addEventListener("click", (incrementNum));
+// downButton -- add event listender
+
+// changing text color: 
+    // checktemperature 
+        // document.getElementById("myH1's Id").style.color = "red";
