@@ -1,6 +1,6 @@
 
 const upButton = document.getElementById("up-button");
-const downButton = document.getElementById("down-button");
+const downButton = document.getElementById("button-down");
 let number = document.getElementById("temperature-now");
 let numInt = parseFloat(number.innerText);
 
@@ -17,3 +17,12 @@ upButton.addEventListener("click", () => {
 });
 
 // // upButton.addEventListener("click", (incrementNum));
+
+const decrementNum = () => {
+  number.innerText = numInt--;
+}
+
+downButton.addEventListener("click", () => {
+  console.log(number);
+  decrementNum()
+});
