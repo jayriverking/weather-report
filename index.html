@@ -11,16 +11,37 @@
 </head>
 <body>
     <header>
-        Weather App
+        Weather for the city of Atlanta!
     </header>
     <section>
-        Temperature
+        <h3>Temperature</h3>
+        <button id="up-button">
+            ⬆️
+        </button>
+        <p>62</p>
+        <button id="button-down">
+            ⬇️
+        </button>
+        <button id="get-temp">
+            Get Realtime Temperature!
+        </button>
     </section>
     <section>
-        Sky options
+        <h3>Choose a sky:</h3>
+        <!-- <div class="sky dropdown"> -->
+        <select class="dropbtn">Sky
+            <option value="sunny">Sunny</option>
+            <option value="sunny">Cloudy</option>
+            <option value="sunny">Rainy</option>
+            <option value="sunny">Snowy</option>
+        </select>
+          <!-- </div>  -->
     </section>
     <section>
-        City name
+        <h3>City Name</h3>
+        <label for="cityname">City:</label>
+        <input type="text" id="city-input" name="cityname">
+        <button id="resetbtn">Reset</button>
     </section>
     <section>
         Weather Garden!
