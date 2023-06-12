@@ -27,15 +27,14 @@
         </button>
     </section>
     <section>
-        <h3>Choose a sky:</h3>
-        <!-- <div class="sky dropdown"> -->
-        <select class="dropbtn">Sky
+        <label for="change-sky" >Choose a sky:</label>
+        <select name="skies" id="change-sky">
+            <option value="">--Please choose a sky--</option>
             <option value="sunny">Sunny</option>
-            <option value="sunny">Cloudy</option>
-            <option value="sunny">Rainy</option>
-            <option value="sunny">Snowy</option>
+            <option value="cloudy">Cloudy</option>
+            <option value="rainy">Rainy</option>
+            <option value="snowy">Snowy</option>
         </select>
-          <!-- </div>  -->
     </section>
     <section>
         <h3>City Name</h3>
@@ -46,7 +45,9 @@
     <section>
         Weather Garden!
         <div id="weather-garden">
-            <p id="weather-emojis">"🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"</p>
+            <p id="chosen-sky"></p>
+            <!-- <p id="sky-emojis">"☁️ ☁️ ☁️ ☀️ ☁️ ☁️"</p> -->
+            <p id="weather-emojis">"🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"</p>
         </div>
     </section>
     <footer>
