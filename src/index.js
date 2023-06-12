@@ -100,15 +100,23 @@ const getWeather = (coords) => {
     axios.get(`http://localhost:5000/weather?lat=${lat}&lon=${lon}`)
     .then(response => {
         console.log(response.data.main.temp)
+        return response.data.main.temp
     }).catch(error => {
         console.log(error)
     })
 }
 
 // should this be async-await so that I can change the innerTEXT? probably yes! (unless I can use .then to change the innerText (lol))
+
+// tempButton.addEventListener("click", () => {
+//     const cityNow = cityDisplay.innerText;
+//     console.log(cityNow)
+//     getLanLon(cityNow).then(resp => getWeather(resp))
+
+// })
+
 tempButton.addEventListener("click", () => {
     const cityNow = cityDisplay.innerText;
     console.log(cityNow)
-    getLanLon(cityNow).then(resp => getWeather(resp))
-
+    number.innerText = getLanLon(cityNow).then(resp => getWeather(resp))
 })
