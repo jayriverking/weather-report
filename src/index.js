@@ -97,7 +97,7 @@ const getLanLon = (city) => {
 const getWeather = (coords) => {
     let lat = coords[0]
     let lon = coords[1]
-    axios.get(`http://localhost:5000/weather?lat=${lat}&lon=${lon}`)
+    return axios.get(`http://localhost:5000/weather?lat=${lat}&lon=${lon}`)
     .then(response => {
         console.log(response.data.main.temp)
         return response.data.main.temp
@@ -115,8 +115,16 @@ const getWeather = (coords) => {
 
 // })
 
+const kelvinToFarenheit = (k) => {
+    return (k - 273.15) * 9/5 + 32;
+}
+
 tempButton.addEventListener("click", () => {
     const cityNow = cityDisplay.innerText;
     console.log(cityNow)
-    number.innerText = getLanLon(cityNow).then(resp => getWeather(resp))
+    getLanLon(cityNow)
+    .then(resp => getWeather(resp))
+    .then(weather => Math.floor(kelvinToFarenheit(weather)))
+    .then(farenheit => number.innerText = farenheit)
+    
 })
