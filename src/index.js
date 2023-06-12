@@ -8,6 +8,9 @@ const weatherGarden = document.getElementById('weather-garden');
 const weatherEmojis = document.getElementById('weather-emojis');
 const cityDisplay = document.getElementById("city-display")
 const cityId = document.getElementById("city-input")
+const skyOptions = document.getElementById('change-sky');
+const skyEmojis = document.getElementById('chosen-sky');
+
 
 function display() {
     cityDisplay.innerText = cityId.value;
@@ -40,6 +43,22 @@ const colorTemp = (number) => {
 
 }
 
+skyOptions.addEventListener('change', () => {
+  const skyValue = document.getElementById('change-sky').value;
+  if (skyValue == 'sunny') {
+    skyEmojis.innerText = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (skyValue =='cloudy') {
+    skyEmojis.innerText = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skyValue == 'rainy') {
+    skyEmojis.innerText = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skyValue == 'snowy') {
+    skyEmojis.innerText = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  } else {
+    skyEmojis.innerText = '';
+  }
+})
+
+
 const weatherGardenChanges = (number) => {
 
   if (numInt < 59){
@@ -67,6 +86,7 @@ upButton.addEventListener("click", () => {
     incrementNum();
     colorTemp(number);
     weatherGardenChanges(number);
+    console.log('click')
 });
 
 
