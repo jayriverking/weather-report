@@ -116,7 +116,7 @@ const getWeather = (coords) => {
 // })
 
 const kelvinToFarenheit = (k) => {
-    return (k - 273.15) * 9/5 + 32;
+    return Math.floor((k - 273.15) * 9/5 + 32);
 }
 
 tempButton.addEventListener("click", () => {
@@ -124,7 +124,6 @@ tempButton.addEventListener("click", () => {
     console.log(cityNow)
     getLanLon(cityNow)
     .then(resp => getWeather(resp))
-    .then(weather => Math.floor(kelvinToFarenheit(weather)))
-    .then(farenheit => number.innerText = farenheit)
+    .then(weather => number.innerText = kelvinToFarenheit(weather))
     
 })
