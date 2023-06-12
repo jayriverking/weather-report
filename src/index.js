@@ -84,28 +84,31 @@ downButton.addEventListener("click", () => {
 const getLanLon = (city) => {
     return axios.get(`http://localhost:5000/location?q=${city}`)
     .then(response => {
-        const lat = response.data[0].lat
-        const lon = response.data[0].lon
-        console.log(lat, lon)
+        let lat = response.data[0].lat
+        let lon = response.data[0].lon
+        console.log(response.data[0].display_name)
         return [lat, lon]
     })
-    .catch(e => {
-        console.log(e)
+    .catch(error => {
+        console.log(error)
     })
 }
 
 const getWeather = (coords) => {
-    const lat = coords[0]
-    const lon = coords[1]
+    let lat = coords[0]
+    let lon = coords[1]
     axios.get(`http://localhost:5000/weather?lat=${lat}&lon=${lon}`)
     .then(response => {
-        console.log(response)
+        console.log(response.data.main.temp)
     }).catch(error => {
         console.log(error)
     })
 }
 
-tempButton.addEventListener("click", (cityDisplay) => {
-    getLanLon(cityDisplay).then(resp => getWeather(resp))
-    // .then get weather
+// should this be async-await so that I can change the innerTEXT? probably yes! (unless I can use .then to change the innerText (lol))
+tempButton.addEventListener("click", () => {
+    const cityNow = cityDisplay.innerText;
+    console.log(cityNow)
+    getLanLon(cityNow).then(resp => getWeather(resp))
+
 })
