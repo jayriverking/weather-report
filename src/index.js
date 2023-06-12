@@ -1,6 +1,7 @@
 
 const upButton = document.getElementById("up-button");
 const downButton = document.getElementById("button-down");
+const tempButton = document.getElementById("get-temp")
 let number = document.getElementById("temperature-now");
 let numInt = parseFloat(number.innerText);
 const weatherGarden = document.getElementById('weather-garden');
@@ -80,3 +81,31 @@ downButton.addEventListener("click", () => {
     weatherGardenChanges(number);
 });
 
+const getLanLon = (city) => {
+    return axios.get(`http://localhost:5000/location?q=${city}`)
+    .then(response => {
+        const lat = response.data[0].lat
+        const lon = response.data[0].lon
+        console.log(lat, lon)
+        return [lat, lon]
+    })
+    .catch(e => {
+        console.log(e)
+    })
+}
+
+const getWeather = (coords) => {
+    const lat = coords[0]
+    const lon = coords[1]
+    axios.get(`http://localhost:5000/weather?lat=${lat}&lon=${lon}`)
+    .then(response => {
+        console.log(response)
+    }).catch(error => {
+        console.log(error)
+    })
+}
+
+tempButton.addEventListener("click", (cityDisplay) => {
+    getLanLon(cityDisplay).then(resp => getWeather(resp))
+    // .then get weather
+})
