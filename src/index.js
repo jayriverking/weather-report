@@ -157,12 +157,15 @@ tempButton.addEventListener("click", () => {
         state.temp = kelvinToFarenheit(weather);
         state.number.innerText = state.temp;
         colorTemp(state.temp);
+        weatherGardenChanges();
     })
 
     
 });
 
-document.onload = colorTemp(state.temp);
+
+document.addEventListener("load", colorTemp(state.temp))
+document.addEventListener("load", weatherGardenChanges())
 
 // resetBtn.addEventListener('click', () => {
 //   const cityInput = document.getElementById('city-input');
@@ -174,3 +177,7 @@ document.onload = colorTemp(state.temp);
 // document.getElementById("myForm").reset()
 
 
+resetBtn.addEventListener("click",() =>{
+    cityDisplay.innerText = "";
+    cityId.value = ""
+} )
