@@ -2,6 +2,7 @@ const state ={
     temp: 0,
     number: document.getElementById("temperature-now"),
 }
+
 const upButton = document.getElementById("up-button");
 const downButton = document.getElementById("button-down");
 const tempButton = document.getElementById("get-temp")
@@ -130,9 +131,12 @@ tempButton.addEventListener("click", () => {
     getLanLon(cityNow)
     .then(resp => getWeather(resp))
     .then(weather => {
-        state.temp = kelvinToFarenheit(weather)
+        state.temp = kelvinToFarenheit(weather);
         state.number.innerText = state.temp;
+        colorTemp(state.temp);
     })
 
     
-})
+});
+
+document.onload = colorTemp(state.temp);
