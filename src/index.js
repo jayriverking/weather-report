@@ -167,15 +167,6 @@ tempButton.addEventListener("click", () => {
 document.addEventListener("load", colorTemp(temp))
 document.addEventListener("load", weatherGardenChanges())
 
-// resetBtn.addEventListener('click', () => {
-//   const cityInput = document.getElementById('city-input');
-//   console.log('click')
-//   cityInput.reset()
-// })
-
-
-// document.getElementById("myForm").reset()
-
 
 resetBtn.addEventListener("click",() =>{
     cityDisplay.innerText = "";
