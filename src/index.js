@@ -1,56 +1,61 @@
-
+const state ={
+    temp: 0,
+    number: document.getElementById("temperature-now"),
+}
 const upButton = document.getElementById("up-button");
 const downButton = document.getElementById("button-down");
 const tempButton = document.getElementById("get-temp")
-let number = document.getElementById("temperature-now");
-let numInt = parseFloat(number.innerText);
+// let number = document.getElementById("temperature-now");
+// let temp = parseFloat(number.innerText);
+state.temp = parseFloat(state.number.innerText);
 const weatherGarden = document.getElementById('weather-garden');
 const weatherEmojis = document.getElementById('weather-emojis');
 const cityDisplay = document.getElementById("city-display")
 const cityId = document.getElementById("city-input")
 
+
 function display() {
     cityDisplay.innerText = cityId.value;
-  }
+}
 
 // console.log('curret temp', number.innerText);
 
 const incrementNum = () => {
-    number.innerText = numInt++;
+    state.number.innerText = state.temp++;
 }
 // color changing function
-const colorTemp = (number) => {
+const colorTemp = () => {
 
-    if (numInt < 49){
-        number.style.color = "teal";
+    if (state.temp < 49){
+        state.number.style.color = "teal";
     }
-    else if (numInt < 59){
-        number.style.color = "green";
+    else if (state.temp < 59){
+        state.number.style.color = "green";
     }
-    else if (numInt < 69){
-        number.style.color = "yellow";
+    else if (state.temp < 69){
+        state.number.style.color = "yellow";
     }
-    else if (numInt < 79){
-        number.style.color = "orange";
+    else if (state.temp < 79){
+        state.number.style.color = "orange";
     }
     else {
 
-            number.style.color = "red";
+        state.number.style.color = "red";
     }
 
 }
 
-const weatherGardenChanges = (number) => {
+const weatherGardenChanges = () => {
 
-  if (numInt < 59){
+  if (state.temp < 59){
       weatherGarden.style.backgroundColor = "green";
       weatherEmojis.innerHTML = "🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲"
   }
-  else if (numInt < 69){
+  else if (state.temp < 69){
       weatherGarden.style.backgroundColor = "yellow";
       weatherEmojis.innerHTML = "🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃"
   }
-  else if (numInt < 79){
+  else if (state.temp < 79){
       weatherGarden.style.backgroundColor = "orange";
       weatherEmojis.innerHTML = "🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷"
   }
@@ -63,22 +68,22 @@ const weatherGardenChanges = (number) => {
 
 
 upButton.addEventListener("click", () => {
-    console.log(number);
+    console.log(state.temp);
     incrementNum();
-    colorTemp(number);
-    weatherGardenChanges(number);
+    colorTemp(state.temp);
+    weatherGardenChanges(state.temp);
 });
 
 
 const decrementNum = () => {
-    number.innerText = numInt--;
+    state.number.innerText = state.temp--;
 }
 
 downButton.addEventListener("click", () => {
-    console.log(number);
+    console.log(state.temp);
     decrementNum()
-    colorTemp(number)
-    weatherGardenChanges(number);
+    colorTemp(state.temp)
+    weatherGardenChanges(state.temp);
 });
 
 const getLanLon = (city) => {
@@ -124,6 +129,10 @@ tempButton.addEventListener("click", () => {
     console.log(cityNow)
     getLanLon(cityNow)
     .then(resp => getWeather(resp))
-    .then(weather => number.innerText = kelvinToFarenheit(weather))
+    .then(weather => {
+        state.temp = kelvinToFarenheit(weather)
+        state.number.innerText = state.temp;
+    })
+
     
 })
