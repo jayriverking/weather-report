@@ -9,7 +9,7 @@ const weatherEmojis = document.getElementById('weather-emojis');
 const cityDisplay = document.getElementById("city-display")
 const cityId = document.getElementById("city-input")
 const skyOptions = document.getElementById('change-sky');
-const skyEmojis = document.getElementById('chosen-sky');
+const skyEmojis = document.getElementById('chosen-sky-emojis');
 
 
 function display() {
