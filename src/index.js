@@ -15,6 +15,9 @@ const cityDisplay = document.getElementById("city-display")
 const cityId = document.getElementById("city-input")
 const skyOptions = document.getElementById('change-sky');
 const skyEmojis = document.getElementById('chosen-sky-emojis');
+const resetBtn = document.getElementById('resetbtn');
+
+
 
 
 
@@ -53,7 +56,7 @@ const colorTemp = () => {
 skyOptions.addEventListener('change', () => {
   const skyValue = document.getElementById('change-sky').value;
   if (skyValue == 'sunny') {
-    skyEmojis.innerText = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+    skyEmojis.innerText = '☀️☀️ ☁️ ☀️☁️ ☀️ ☁️☀️☀️';
   } else if (skyValue =='cloudy') {
     skyEmojis.innerText = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
   } else if (skyValue == 'rainy') {
@@ -160,3 +163,14 @@ tempButton.addEventListener("click", () => {
 });
 
 document.onload = colorTemp(state.temp);
+
+// resetBtn.addEventListener('click', () => {
+//   const cityInput = document.getElementById('city-input');
+//   console.log('click')
+//   cityInput.reset()
+// })
+
+
+// document.getElementById("myForm").reset()
+
+
